@@ -1,0 +1,11 @@
+#Stellt Kommunikation zwischen internen und externen Komponenten dar.
+
+#Service via yml-File erstellen
+kubectl create -f service-definition.yml
+
+#Laufende Services prüfen (Cluster-IP - Ist die IP von der Service-Komponente. Wird beim ClusterIP-Konstrukt verwendet.)
+kubectl get services
+
+#Zugriff auf ein POD(bei einer NodePort-Variante)
+#Sogriff nur Zugriff auf ein POD. Auf beim Prod gibt es mehrere PODs. Deshalb bringt es nicht viel.
+curl http://IP-Adresse-von-Node:30008

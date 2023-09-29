@@ -1,0 +1,24 @@
+#Deplomyents - Instanzen aktualiseren(neue Version von den Pods/update, Fehlgeschlagene Update, Rückgangig machen, etc.)
+#Dient um Rollout auf Prod zu steuen (Einzeln Pods updaten, alle zusammen updaten, etc.)
+
+#Alle Kubernetes-Instanzen prüfen
+kubectl get all
+
+#Rollout Status prüfen
+kubectl rollout status deployment/myapp-deployment
+
+#History von Rollout prüfen
+kubectl rollout history deployment/myapp-deployment
+
+#Deployment update (Image updaten, replas updaten etc.)
+kubectl apply -f deployment-definition.yml
+kubectl set image deployment/myapp-deployment nginx=nginx:1.9.1
+
+#Deployment rückgängig machen
+kubectl rollout undo deployment/myapp-deployment
+
+#Deployments erstellen
+kubectl create -f deployment-definition.yml
+
+#Deployments ansehen
+kubectl get deployments

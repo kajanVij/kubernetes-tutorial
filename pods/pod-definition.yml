@@ -1,0 +1,16 @@
+#Pflichtfeld - Version von Kubernetes API (POD - v1, Service - v1, ReplicaSet - apps/v1, Deployment - apps/v1)
+apiVersion: v1
+#Pflichtfeld - Typ, welcher erstellt werden soll (POD, Service, ReplicaSet, Deployment)
+kind: Pod
+#Pflichtfeld - Daten zum Objekt, welcher erstellt wird.
+metadata:
+    name: myapp-pod
+    labels:
+        app: myapp
+        type: front-end
+
+#Pflichtfeld - Spezifikation zum Objekt, welcher man erstellt möchte
+spec:
+    containers:
+        - name: nginx-container
+          image: nginx

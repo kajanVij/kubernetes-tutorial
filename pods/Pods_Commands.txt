@@ -1,0 +1,17 @@
+#nginx Pod starten
+kubectl run nginx --image=nginx
+
+#laufende Pods anzeigen
+kubectl get pods
+
+#detail. Infos zu den laufenden Pods(IP von Pod, auf welchem Node der Pod läuft, etc.)
+kubectl get pods -o wide
+
+#detail. Infos zum Pod
+kubectl describe pod nginx
+
+#Pod anhand von yml-file erstellen
+kubectl create -f pod-definition.yml
+
+#Command, um Pod zu updaten
+kubectl apply -f pod-definition.yml

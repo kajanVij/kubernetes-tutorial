@@ -1,0 +1,31 @@
+#GLEICH WIE REPLICASET. NUR KIND ANDERS
+#Pflichtfeld - Version von Kubernetes API (POD - v1, Service - v1, ReplicaSet - apps/v1, Deployment - apps/v1)
+apiVersion: apps/v1
+#Pflichtfeld - Typ, welcher erstellt werden soll (POD, Service, ReplicaSet, Deployment)
+kind: Deployment
+#Pflichtfeld - Daten zum Objekt, welcher erstellt wird.
+metadata:
+  name: myapp-rc
+  labels:
+    apps: myapp
+    type: front-end
+#Pflichtfeld - Spezifikation zum Objekt, welcher man erstellt möchte
+spec:
+  -template:
+    #Pod-Definitionen hier einfügen (ausser apiVersion & kind)
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+        type: front-end
+
+    spec:
+      containers:
+          - name: nginx-container
+            image: nginx
+  # wie viele mal Pod erstellt werden soll
+  replicas: 3
+  # nicht required. Gibt an, welcher Pod auch noch neu erstellt werden soll
+  selector:
+      matchLabels:
+          type: front-end         

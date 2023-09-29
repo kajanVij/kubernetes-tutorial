@@ -1,0 +1,17 @@
+#Erstellt replicaset von den Pods
+kubectl create -f replicaset-definition.yml
+
+#Replicasets anzeigen
+kubectl get replicaset
+
+#update Replicaset - mit yml
+kubectl replace -f replicaset-definition.yml
+
+#update Replicaset - ohne yml
+kubectl scale --replicas=6 replicaset myapp-replicaset
+
+#delete
+kubectl delete replicaset myapp-replicaset
+
+#edit - macht die Änderungen in Memory (live)
+kubectl edit replicaset myapp-replicaset
